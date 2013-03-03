@@ -7,15 +7,15 @@ class @ImagePreloader
     _this = @
     for imageUrl in (@urls || [])
       image = new Image()
-      image.onabort = -> _this.onImageLoad(@.src)
-      image.onerror = -> _this.onImageLoad(@.src)
-      image.onload = -> _this.onImageLoad(@.src)
+      image.onabort = -> _this.onImageLoad(@)
+      image.onerror = -> _this.onImageLoad(@)
+      image.onload = -> _this.onImageLoad(@)
       image.src = imageUrl
 
-  onImageLoad: (url) =>
+  onImageLoad: (image) =>
     @loadedCount += 1
     details =
-      url: url
+      url: image.src
       loadedCount: @loadedCount
       totalCount: @urls.length
     @imageLoad?(details)

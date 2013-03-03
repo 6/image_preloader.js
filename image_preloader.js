@@ -25,24 +25,24 @@
         imageUrl = _ref[_i];
         image = new Image();
         image.onabort = function() {
-          return _this.onImageLoad(this.src);
+          return _this.onImageLoad(this);
         };
         image.onerror = function() {
-          return _this.onImageLoad(this.src);
+          return _this.onImageLoad(this);
         };
         image.onload = function() {
-          return _this.onImageLoad(this.src);
+          return _this.onImageLoad(this);
         };
         _results.push(image.src = imageUrl);
       }
       return _results;
     };
 
-    ImagePreloader.prototype.onImageLoad = function(url) {
+    ImagePreloader.prototype.onImageLoad = function(image) {
       var details;
       this.loadedCount += 1;
       details = {
-        url: url,
+        url: image.src,
         loadedCount: this.loadedCount,
         totalCount: this.urls.length
       };
