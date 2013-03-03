@@ -13,15 +13,13 @@
       this.start = __bind(this.start, this);
 
       this.loadedImageCount = 0;
-      this.urls = options.urls || [];
-      this.onImageLoadCallback = options.imageLoad;
-      this.onCompleteCallback = options.complete;
+      this.urls = options.urls, this.imageLoad = options.imageLoad, this.complete = options.complete;
     }
 
     ImagePreloader.prototype.start = function() {
       var image, imageUrl, _i, _len, _ref, _results, _this;
       _this = this;
-      _ref = this.urls;
+      _ref = this.urls || [];
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         imageUrl = _ref[_i];
@@ -48,11 +46,11 @@
         loadedImageCount: this.loadedImageCount,
         totalImageCount: this.urls.length
       };
-      if (typeof this.onImageLoadCallback === "function") {
-        this.onImageLoadCallback(details);
+      if (typeof this.imageLoad === "function") {
+        this.imageLoad(details);
       }
       if (this.loadedImageCount >= this.urls.length) {
-        return typeof this.onCompleteCallback === "function" ? this.onCompleteCallback(this.urls) : void 0;
+        return typeof this.complete === "function" ? this.complete(this.urls) : void 0;
       }
     };
 

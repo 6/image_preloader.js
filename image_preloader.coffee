@@ -1,13 +1,11 @@
 class @ImagePreloader
   constructor: (options = {}) ->
     @loadedImageCount = 0
-    @urls = options.urls || []
-    @onImageLoadCallback = options.imageLoad
-    @onCompleteCallback = options.complete
+    {@urls, @imageLoad, @complete} = options
 
   start: =>
     _this = @
-    for imageUrl in @urls
+    for imageUrl in (@urls || [])
       image = new Image()
       image.onabort = -> _this.onImageLoad(@.src)
       image.onerror = -> _this.onImageLoad(@.src)
@@ -20,7 +18,7 @@ class @ImagePreloader
       url: url
       loadedImageCount: @loadedImageCount
       totalImageCount: @urls.length
-    @onImageLoadCallback?(details)
+    @imageLoad?(details)
 
     if @loadedImageCount >= @urls.length
-      @onCompleteCallback?(@urls)
+      @complete?(@urls)
