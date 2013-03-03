@@ -1,6 +1,6 @@
 class @ImagePreloader
   constructor: (options = {}) ->
-    @loadedImageCount = 0
+    @loadedCount = 0
     {@urls, @imageLoad, @complete} = options
 
   start: =>
@@ -13,12 +13,12 @@ class @ImagePreloader
       image.src = imageUrl
 
   onImageLoad: (url) =>
-    @loadedImageCount += 1
+    @loadedCount += 1
     details =
       url: url
-      loadedImageCount: @loadedImageCount
-      totalImageCount: @urls.length
+      loadedCount: @loadedCount
+      totalCount: @urls.length
     @imageLoad?(details)
 
-    if @loadedImageCount >= @urls.length
+    if @loadedCount >= @urls.length
       @complete?(@urls)

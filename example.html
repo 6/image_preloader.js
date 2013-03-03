@@ -17,8 +17,7 @@
 
       imageLoad: function(details) {
         document.getElementById("images").innerHTML += "<li><img src='"+details.url+"'>";
-
-        document.getElementById("percent-loaded").innerHTML = Math.round(details.loadedImageCount / details.totalImageCount * 100);
+        document.getElementById("percent-loaded").innerHTML = Math.round(details.loadedCount / details.totalCount * 100);
       },
 
       complete: function(images) {

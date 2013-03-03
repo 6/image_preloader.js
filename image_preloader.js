@@ -12,7 +12,7 @@
 
       this.start = __bind(this.start, this);
 
-      this.loadedImageCount = 0;
+      this.loadedCount = 0;
       this.urls = options.urls, this.imageLoad = options.imageLoad, this.complete = options.complete;
     }
 
@@ -40,16 +40,16 @@
 
     ImagePreloader.prototype.onImageLoad = function(url) {
       var details;
-      this.loadedImageCount += 1;
+      this.loadedCount += 1;
       details = {
         url: url,
-        loadedImageCount: this.loadedImageCount,
-        totalImageCount: this.urls.length
+        loadedCount: this.loadedCount,
+        totalCount: this.urls.length
       };
       if (typeof this.imageLoad === "function") {
         this.imageLoad(details);
       }
-      if (this.loadedImageCount >= this.urls.length) {
+      if (this.loadedCount >= this.urls.length) {
         return typeof this.complete === "function" ? this.complete(this.urls) : void 0;
       }
     };
