@@ -2,8 +2,8 @@ class @ImagePreloader
   constructor: (options = {}) ->
     @loadedImageCount = 0
     @urls = options.urls || []
-    @onImageLoadCallback = options.onImageLoad
-    @onCompleteCallback = options.onComplete
+    @onImageLoadCallback = options.imageLoad
+    @onCompleteCallback = options.complete
 
   start: =>
     _this = @

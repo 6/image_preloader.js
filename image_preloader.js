@@ -14,8 +14,8 @@
 
       this.loadedImageCount = 0;
       this.urls = options.urls || [];
-      this.onImageLoadCallback = options.onImageLoad;
-      this.onCompleteCallback = options.onComplete;
+      this.onImageLoadCallback = options.imageLoad;
+      this.onCompleteCallback = options.complete;
     }
 
     ImagePreloader.prototype.start = function() {
