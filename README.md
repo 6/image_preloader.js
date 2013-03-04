@@ -6,7 +6,7 @@ Simple javascript class for preloading images.
 var preloader = new ImagePreloader({
   urls: ['array', 'of', 'image', 'urls'], // URLs can be relative or absolute
   imageLoad: function(imageDetails) { ... },
-  complete: function(imageUrls) { ... }, 
+  complete: function(imageUrls) { ... }
 });
 preloader.start();
 ```
@@ -21,7 +21,9 @@ Fired when an image finishes loading. Provides an `imageDetails` hash containing
 {
   url: 'url-of-image',
   loadedCount: 2, // how many images have been loaded so far
-  totalCount: 4 // total image count
+  totalCount: 4, // total image count
+  abort: false, // true if image load was aborted
+  error: false // true if image load encountered error
 }
 ```
 
