@@ -33,7 +33,7 @@ Fired when all images have finished loading. Provides an array of the image URLs
 
 ## Example
 
-http://6.github.com/image_preloader.js/example.html
+http://6.github.io/image_preloader.js/samples/example.html
 
 ## Credits
 
