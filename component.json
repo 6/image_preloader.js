@@ -1,6 +1,10 @@
 {
   "name": "image_preloader",
   "description": "Simple javascript image preloader",
+  "keywords": ["preload", "image"],
+  "repo": "6/image_preloader.js",
+  "main": "image_preloader.js",
+  "scripts": ["image_preloader.js"],
   "version": "1.0.1",
-  "main": "image_preloader.js"
+  "license": "MIT"
 }
